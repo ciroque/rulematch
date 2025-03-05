@@ -1,0 +1,13 @@
+# Binaries and build artifacts
+*.exe
+*.exe~
+*.so
+*.dll
+*.dylib
+/bin/
+/dist/
+
+# Go-specific
+*.test
+*.prof
+vendor/
