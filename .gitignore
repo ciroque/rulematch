@@ -11,3 +11,5 @@
 *.test
 *.prof
 vendor/
+
+rulematch
