@@ -3,9 +3,8 @@ package selector
 // matchTags evaluates a tag-based Rule against a Context's tags.
 func matchTags(rule *Rule, ctxTags map[string]string) bool {
 	if len(rule.Tags) == 0 {
-		return true // No tags means match, per your impl
+		return true
 	}
-
 	switch rule.Operand {
 	case "and":
 		for k, v := range rule.Tags {
@@ -29,7 +28,6 @@ func matchTags(rule *Rule, ctxTags map[string]string) bool {
 		}
 		return false
 	default:
-		// Shouldn’t hit this (validated in ParseRule), but fallback to false
 		return false
 	}
 }

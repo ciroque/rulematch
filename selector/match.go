@@ -1,5 +1,11 @@
 package selector
 
+var operandDispatch = map[string]func(left, right []string) bool{
+	"and": and,
+	"not": not,
+	"or":  or,
+}
+
 // Match evaluates a Rule against a Context, returning true if it matches.
 func Match(rule *Rule, ctx *Context) bool {
 	if rule == nil {
@@ -19,7 +25,7 @@ func Match(rule *Rule, ctx *Context) bool {
 
 	case "":
 		return matchTags(rule, ctx.Tags)
-		
+
 	default:
 		// Unknown types fail silently (could log or error if desired)
 		return false
